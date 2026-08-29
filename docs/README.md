@@ -12,6 +12,7 @@ Product decisions, written before the code and expected to constrain it.
 | [`ARCHITECTURE.md`](ARCHITECTURE.md) | How the system is put together, and why each boundary is where it is |
 | [`EXTRACTION.md`](EXTRACTION.md) | The one place a model does the work, explained decision by decision |
 | [`MILESTONES.md`](MILESTONES.md) | The build order, and the check that closes each milestone |
+| [`SECURITY.md`](SECURITY.md) | What happens to meeting content and to the model key, and what cannot happen |
 | [`DECISIONS.md`](DECISIONS.md) | Provisional decisions and the signal that would reopen each one |
 
 Product documents come first; `ARCHITECTURE` and `EXTRACTION` describe how those decisions are

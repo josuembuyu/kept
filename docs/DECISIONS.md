@@ -119,6 +119,26 @@ meetings — in which case Slack threads, not WhatsApp, are the extension.
 
 ---
 
+## D9 — Bring your own key
+
+Kept runs on the team's own model provider account, self-hosted or hosted.
+
+**Why.** Three reasons, in order. It keeps inference cost out of the product, so there is no
+incentive to mark it up or to quietly downgrade the model. It makes spend visible on the team's own
+bill instead of buried in a subscription. And it is the only version consistent with self-hosting,
+which is the product's real privacy answer.
+
+**Cost, stated plainly.** The team's provider access becomes the constraint — model availability
+and rate limits are theirs, and their errors become ours to surface. In hosted mode Kept has to
+store a credential that can spend money, because extraction runs after the meeting with nobody
+present. The guarantees around that are in [`SECURITY.md`](SECURITY.md) and are structural —
+write-only, encrypted with a key held elsewhere, never logged, deletable — rather than promised.
+
+**Reopen if.** Requiring a provider account turns out to block teams who would otherwise adopt, in
+which case a managed option is added alongside it — never instead of it.
+
+---
+
 ## Open
 
 - **Name.** "Kept" is a working name; the domain has not been checked.

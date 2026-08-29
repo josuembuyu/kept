@@ -31,6 +31,9 @@ completed. Extraction is a solved problem; follow-through is not.
 - **Pre-meeting report** — what was agreed, what happened, what did not move.
 - **Optional capture** — Kept can record the meeting itself when speaker attribution matters.
   Self-hostable end to end, for teams that cannot send meeting content to a third party.
+- **Your own model key** — Kept runs on your provider account. Self-hosted, the key never leaves
+  your machine. Hosted, it is write-only and encrypted with a key held elsewhere. See
+  [`docs/SECURITY.md`](docs/SECURITY.md).
 
 ## 🔁 How it works
 
@@ -115,6 +118,7 @@ set is 20 hand-annotated real meeting transcripts, and results are published her
 - [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — components, boundaries, stack, and why
 - [`docs/EXTRACTION.md`](docs/EXTRACTION.md) — the model call explained step by step
 - [`docs/MILESTONES.md`](docs/MILESTONES.md) — the build order and what closes each milestone
+- [`docs/SECURITY.md`](docs/SECURITY.md) — meeting content, key handling, self-hosting
 - [`docs/DECISIONS.md`](docs/DECISIONS.md) — provisional decisions and their reopen triggers
 
 ## 🤝 Contributing

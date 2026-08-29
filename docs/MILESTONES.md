@@ -140,6 +140,8 @@ Same result, through a self-hosted bot.
 | Feature | |
 |---|---|
 | Recording rules enforced in code | announcement, no training, short retention |
+| Key handling | write-only storage, encrypted with a key held elsewhere, never logged, deletable |
+| Usage visible | token spend per meeting, reconcilable against the provider's own bill |
 | Self-hosting | capture, transcription and extraction run on the team's own infrastructure |
 | Published metrics | the evaluation table filled in, including the bad numbers |
 | Documented failure modes | what Kept gets wrong, written down before anyone finds out |
