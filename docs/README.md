@@ -9,8 +9,13 @@ Product decisions, written before the code and expected to constrain it.
 | [`CAPTURE.md`](CAPTURE.md) | Where transcripts come from — forwarded email, Zoom, Meet — and the recording rules |
 | [`FOLLOW-UP.md`](FOLLOW-UP.md) | What happens between two meetings: recap, confirmation, evidence, report |
 | [`EVALUATION.md`](EVALUATION.md) | How Kept is measured, and why the eval set is built before the features |
+| [`ARCHITECTURE.md`](ARCHITECTURE.md) | How the system is put together, and why each boundary is where it is |
+| [`EXTRACTION.md`](EXTRACTION.md) | The one place a model does the work, explained decision by decision |
 | [`MILESTONES.md`](MILESTONES.md) | The build order, and the check that closes each milestone |
 | [`DECISIONS.md`](DECISIONS.md) | Provisional decisions and the signal that would reopen each one |
+
+Product documents come first; `ARCHITECTURE` and `EXTRACTION` describe how those decisions are
+implemented and never override them.
 
 **Authority order.** `SCOPE.md` wins over everything else. `DECISIONS.md` is provisional by
 construction and is expected to change. The other documents must stay consistent with both.

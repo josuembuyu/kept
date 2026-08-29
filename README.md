@@ -112,6 +112,8 @@ set is 20 hand-annotated real meeting transcripts, and results are published her
 - [`docs/CAPTURE.md`](docs/CAPTURE.md) — where transcripts come from, and the recording rules
 - [`docs/FOLLOW-UP.md`](docs/FOLLOW-UP.md) — what happens between two meetings
 - [`docs/EVALUATION.md`](docs/EVALUATION.md) — how Kept is measured
+- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — components, boundaries, stack, and why
+- [`docs/EXTRACTION.md`](docs/EXTRACTION.md) — the model call explained step by step
 - [`docs/MILESTONES.md`](docs/MILESTONES.md) — the build order and what closes each milestone
 - [`docs/DECISIONS.md`](docs/DECISIONS.md) — provisional decisions and their reopen triggers
 
