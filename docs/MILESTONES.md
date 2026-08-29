@@ -54,6 +54,7 @@ The group hears what was decided; each owner confirms their own.
 | Group recap | email and Slack, both |
 | Per-owner confirmation | one action: accept, reject, correct |
 | Correction | edits the commitment; rejection deletes it |
+| Push to a tracker | one action creates the ticket in Linear or Jira and links it |
 | External participants | reachable by email without an account |
 
 **Check.** An owner confirms from either channel, and a rejected commitment disappears rather than
@@ -81,7 +82,8 @@ Commitments resolve themselves.
 
 | Feature | |
 |---|---|
-| Connected sources | evidence looked for where it would exist |
+| Connected sources | git host, issue tracker — evidence looked for where it would exist |
+| Linked tickets | a ticket reaching done resolves its commitment as verified |
 | State resolution | `kept (verified)`, `kept (self-reported)`, `in progress`, `unknown` |
 | Self-report | owner's word recorded as such, never merged into verified |
 | Follow-up policy | one reminder near the deadline, only with no signal at all |

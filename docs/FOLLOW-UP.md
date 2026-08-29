@@ -40,7 +40,11 @@ Each person receives their confirmation wherever they already are. Nobody is ask
 One message, one action:
 
 > You said you would open the PR fixing the Belgian tax rates, by Thursday 27 August.
-> **Yes** · **Not me** · **Change**
+> **Yes** · **Not me** · **Change** · **Create the ticket**
+
+The last option pushes the commitment into Linear or Jira and links it. Kept writes once, then
+only reads: the ticket reaching done becomes the evidence, and the commitment resolves as
+`kept (verified)` rather than on the owner's word.
 
 That is the only thing Kept ever asks of anyone. There is no per-commitment configuration, no
 tracking rules to set, no source to pick. If information is missing, Kept marks it `unknown` and

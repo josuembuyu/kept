@@ -139,6 +139,25 @@ which case a managed option is added alongside it — never instead of it.
 
 ---
 
+## D10 — Creating a ticket is a destination, not management
+
+From the recap, an owner can push their commitment into Linear or Jira in one action. Kept then
+watches that ticket as an evidence source.
+
+**Where the line sits.** Kept **writes once**, at creation, on the owner's action. It never owns the
+board, never syncs status back into it, never creates tickets nobody asked for, and never becomes
+the place where work is organised. After creation the ticket is read-only to Kept — a signal, like
+a merged pull request.
+
+**Why.** It removes the one manual step between "I said I would" and "it exists where my work
+lives", and it upgrades the commitment from `kept (self-reported)` to `kept (verified)`, because a
+ticket moving to done is an observable signal.
+
+**Reopen if.** Teams start expecting Kept to keep the ticket and the commitment in sync in both
+directions — which is ticket management, and is where this stops.
+
+---
+
 ## Open
 
 - **Name.** "Kept" is a working name; the domain has not been checked.
