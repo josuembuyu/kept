@@ -174,11 +174,18 @@ directions — which is ticket management, and is where this stops.
 The only automatic evidence source is a ticket linked to a commitment. Kept does not read the
 repository, documents, messages or calendars looking for signals.
 
-**Why.** A ticket status is deterministic: it is read, not judged. Inferring completion from a
-merged pull request means a model deciding whether a fuzzy signal satisfies a commitment — which
-is exactly where false `kept` verdicts come from, and false `kept` is the blocking metric.
-Not reading the code is a decision, deliberately recorded here rather than promised in
-`SECURITY.md` — so that adding a source later is a decision to revisit, not a promise to break.
+**Why, first reason.** Reading a repository, documents and messages to infer how work is
+progressing is what a project management tool does. "Where are we on this?" is Jira's job. Kept
+answers a different question — *does what was said come back?* — and a tool that watches everywhere
+to deduce status has quietly become the other thing.
+
+**Why, second reason.** A ticket status is deterministic: it is read, not judged. Inferring
+completion from a merged pull request means a model deciding whether a fuzzy signal satisfies a
+commitment — which is exactly where false `kept` verdicts come from, and false `kept` is the
+blocking metric.
+
+Not reading the code is recorded here as a decision rather than promised in `SECURITY.md`, so that
+adding a source later is an arbitration to reopen, not a promise to break.
 
 **What it costs.** Commitments with no ticket have no automatic path. They resolve either on the
 owner's word, as `kept (self-reported)`, or not at all.

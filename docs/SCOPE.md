@@ -22,6 +22,11 @@ This document is written before the code and is expected to constrain it.
 Project management · manager-assigned tasks · people evaluation · meeting analytics · replacing
 the task manager or the calendar.
 
+**On inferring progress:** Kept does not read repositories, documents or messages to work out how
+far something has got. Deducing status from everywhere is what a project management tool does, and
+it is the boundary this product does not cross. Evidence is the status of a ticket someone chose
+to link. See `DECISIONS.md` D11.
+
 **On tickets specifically:** an owner can push a commitment into Linear or Jira in one action, and
 Kept then reads that ticket as evidence. Creating on request and observing is in scope; owning the
 board, syncing it back, or organising work in it is not. See `DECISIONS.md` D10.
