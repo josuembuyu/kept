@@ -29,6 +29,8 @@ problem, follow-through is not.
 - **Three states, never two** — `kept` / `in progress` / `unknown`. Kept never reports something
   as done without evidence, and never reports absence of signal as failure.
 - **Pre-meeting report** — what was agreed, what happened, what did not move.
+- **Optional capture** — Kept can record the meeting itself when speaker attribution matters.
+  Self-hostable end to end, for teams that cannot send meeting content to a third party.
 
 ## 🔁 How it works
 
@@ -39,7 +41,8 @@ transcript ──▶ extract ──▶ confirm ──▶ track ──▶ report
   notetaker    per item   per owner      sources
 ```
 
-Kept records nothing, transcribes nothing, and replaces none of your tools.
+Works with the notetaker you already use. Kept can also capture the meeting itself — see
+[`docs/SCOPE.md`](docs/SCOPE.md).
 
 ## 🚀 Quick start
 
@@ -60,6 +63,7 @@ npx kept report                      # pre-meeting summary
 | Evidence tracking, one source | planned |
 | Pre-meeting report | planned |
 | Evaluation harness | planned |
+| Meeting capture + self-hosting | planned |
 
 ## 📊 Evaluation
 

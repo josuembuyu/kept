@@ -10,15 +10,17 @@ This document is written before the code and is expected to constrain it.
 ### In
 
 - Reading a transcript produced by an existing notetaker.
+- Capturing the meeting directly, as an optional alternative source (phase 3).
 - Extracting commitments — who, what, when, evidence.
 - Confirming each commitment with its owner, in one interaction.
 - Looking for evidence of progress in connected sources.
 - Reporting state before the next meeting.
+- Self-hosting the whole pipeline, including capture and transcription.
 
 ### Out
 
-Recording · transcription · project management · manager-assigned tasks · people evaluation ·
-meeting analytics · replacing the notetaker, the task manager, or the calendar.
+Project management · manager-assigned tasks · people evaluation · meeting analytics · replacing
+the task manager or the calendar.
 
 ### Deliberate limitations
 
@@ -40,8 +42,34 @@ surveillance tool, and no team accepts one.
 **2. Silence is a valid state.** No daily reminders, no performance score, no leaderboard. A
 commitment with no signal is reported as unknown and left alone until its deadline nears.
 
-**3. Kept replaces nothing.** Not the notetaker, not the task manager, not the calendar. Every
-feature must work alongside the tools a team already pays for.
+**3. Email ingestion is never removed.** Kept has its own capture, but a team that already pays
+for a notetaker must always be able to use Kept by forwarding the summary it already receives.
+Capture is an option, never a precondition.
+
+---
+
+## Capture
+
+Kept records meetings itself, as an option. Not to compete with existing notetakers, but because
+the `who` field depends entirely on speaker attribution — and that is where existing tools are
+weakest: Otter is graded D on speaker identification, with around 30% misattribution on
+multi-person calls. A commitment attributed to the wrong person is the worst failure Kept can
+produce, worse than a missed one.
+
+**Route.** A bot that joins the meeting, giving one audio stream per participant. Local system
+audio capture avoids the bot but returns the diarisation problem we are trying to escape.
+
+**Three rules, non-negotiable.** The 2026 lawsuits against notetakers were about exactly this.
+
+1. The recorder's presence is announced explicitly to every participant.
+2. Meeting content is never used to train a model. No default, no setting, no exception.
+3. Retention is short and displayed. The transcript is kept; the audio is not.
+
+**Self-hosting.** Capture, transcription and extraction can all run on infrastructure the team
+controls. This is the answer for anyone who cannot send meeting content to a third party.
+
+**Phase.** Capture ships after the loop is proven, not before. Building audio plumbing first would
+delay the only part of Kept that is differentiated.
 
 ---
 
