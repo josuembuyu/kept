@@ -172,7 +172,7 @@ quality.
 |---|---|---|
 | Chunking long transcripts | A three-hour transcript still fits in context. Chunking splits conversations mid-exchange and breaks attribution. | Only if a real transcript fails |
 | An adversarial verifier | A second pass trying to refute each extraction would attack the worst failure mode directly | Considered for M1 |
-| Retrieval | Nothing to retrieve — the transcript is the whole context | Evidence search at M5 is a genuine retrieval problem |
+| Retrieval | Nothing to retrieve — the transcript is the whole context | Not planned. Evidence is a ticket status, read rather than searched for |
 | Fine-tuning | There is no dataset yet, and the evaluation set is the prerequisite for knowing whether it would help | Not planned |
 
 ---

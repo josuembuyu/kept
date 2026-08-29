@@ -82,14 +82,15 @@ Commitments resolve themselves.
 
 | Feature | |
 |---|---|
-| Connected sources | git host, issue tracker — evidence looked for where it would exist |
-| Linked tickets | a ticket reaching done resolves its commitment as verified |
+| Linked tickets | the only automatic evidence source: a ticket reaching done resolves its commitment as verified |
+| No code access | the repository, documents and messages are never read |
+| Share tracked | the proportion of commitments that receive a ticket, measured from the start |
 | State resolution | `kept (verified)`, `kept (self-reported)`, `in progress`, `unknown` |
 | Self-report | owner's word recorded as such, never merged into verified |
 | Follow-up policy | one reminder near the deadline, only with no signal at all |
 
-**Check.** A commitment closes on a real signal, with nobody asked for a status. False `kept` rate
-measured and at zero.
+**Check.** A commitment closes when its ticket closes, with nobody asked for a status. False `kept`
+rate measured and at zero — which a deterministic signal makes achievable by construction.
 
 ---
 

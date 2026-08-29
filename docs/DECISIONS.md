@@ -169,6 +169,35 @@ directions — which is ticket management, and is where this stops.
 
 ---
 
+## D11 — Evidence comes from the linked ticket, not from the code
+
+The only automatic evidence source is a ticket linked to a commitment. Kept does not read the
+repository, documents, messages or calendars looking for signals.
+
+**Why.** A ticket status is deterministic: it is read, not judged. Inferring completion from a
+merged pull request means a model deciding whether a fuzzy signal satisfies a commitment — which
+is exactly where false `kept` verdicts come from, and false `kept` is the blocking metric.
+Refusing code access also turns the anti-surveillance rule from a promise into a technical fact:
+Kept cannot watch what it never reads.
+
+**What it costs.** Commitments with no ticket have no automatic path. They resolve either on the
+owner's word, as `kept (self-reported)`, or not at all.
+
+**Why that is acceptable.** The pre-meeting report is the mechanism, not a fallback. What goes into
+a tracker is verified by machine; everything else is put back in front of the group, which is what
+made people act in the first place.
+
+**Reminders stay.** One reminder as a deadline nears with no signal — the restrained policy in
+`FOLLOW-UP.md` is unchanged. Dropping code surveillance is not the same as going silent.
+
+**Measured.** The share of commitments that receive a ticket is tracked. If it is very low,
+machine verification covers almost nothing and we learn that in weeks rather than after building a
+retrieval layer.
+
+**Reopen if.** That share turns out to be too low for the report alone to carry the rest.
+
+---
+
 ## Open
 
 - **Name.** "Kept" is a working name; the domain has not been checked.

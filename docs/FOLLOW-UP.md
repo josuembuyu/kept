@@ -65,9 +65,16 @@ never per meeting and never per commitment.
 
 ## Evidence
 
-Kept looks for signals of progress rather than asking for status. A commitment whose evidence
-field says "a merged pull request touching the rates config" is checked against the connected
-source; the owner is never asked "how is it going".
+Kept watches one thing: the ticket linked to a commitment. When it closes, the commitment resolves
+as `kept (verified)` and nobody was ever asked for a status.
+
+**Kept does not read the repository, documents or messages.** Inferring completion from a merged
+pull request means a model judging whether a fuzzy signal satisfies a commitment, which is where
+false verdicts come from. Refusing that access also means the anti-surveillance rule is not a
+promise — Kept cannot watch what it never reads.
+
+Commitments with no ticket resolve on the owner's word, as `kept (self-reported)`, or are put back
+in front of the group in the pre-meeting report.
 
 Where the owner states completion but no external signal exists, that is recorded as self-reported
 and displayed as such. Self-reporting is evidence of a claim, not evidence of a fact — see

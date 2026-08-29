@@ -30,6 +30,7 @@ self-hosted would break this.
 | **Never used for training** | Meeting content is never used to train or improve a model. No default, no opt-out to find, no exception. |
 | **Redacted at capture** | Credentials, card numbers and personal identifiers are removed before storage, not after. |
 | **Retention is short and displayed** | A team can see how long content is held, and delete it. |
+| **Your code is never read** | Kept has no repository access. Evidence is the status of a ticket someone chose to link — nothing is inferred from commits, documents or messages. |
 
 The 2026 lawsuits against meeting notetakers were about the first and third rows. They are rules,
 not features.

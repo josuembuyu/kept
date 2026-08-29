@@ -59,7 +59,7 @@ Turborepo monorepo, pnpm workspaces. Packages appear as milestones land — see
 | `capture` | Zoom RTMS, Meet via Attendee | Platform-specific, breaks for platform-specific reasons. Kept behind one interface so the rest never learns which platform a meeting came from. |
 | `ingest` | Inbound email parsing | Tolerating six notetaker formats is messy work. It is contained here so the mess does not spread. |
 | `notify` | Email and Slack delivery | Two channels, one message model. Written once; adding a third channel touches nothing else. |
-| `evidence` | Looking for signals in connected sources | Each source is a plugin behind one interface. |
+| `evidence` | Reading the state of linked tickets | The only automatic evidence source. Deliberately narrow: no repository, document or message access — see `DECISIONS.md` D11. |
 | `calendar` | Series identity, next occurrence | Small and self-contained, and the only integration users are asked for. |
 | `cli` | Local operation and development | How the system is driven before any service exists. |
 
