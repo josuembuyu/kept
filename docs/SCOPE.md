@@ -1,6 +1,6 @@
 # Scope
 
-What Kept does, what it refuses to do, and what has to be true at launch.
+What Kept does and what it refuses to do.
 This document is written before the code and is expected to constrain it.
 
 ---
@@ -77,12 +77,13 @@ delay the only part of Kept that is differentiated.
 
 ---
 
-## At launch
+## The product
 
-Kept launches with the whole loop closed. A capture that produces commitments nobody follows is
-not a smaller version of the product — it is a different, worse one.
+Kept is the whole loop, closed. A capture that produces commitments nobody follows is not a
+smaller version of the product — it is a different, worse one. There is no reduced edition and no
+staged release.
 
-Complete means all of this:
+The product is all of this:
 
 - Transcripts from a forwarded summary, from Zoom, and from Meet.
 - Commitment extraction with the four fields, and gaps reported where they cannot be filled.
@@ -92,12 +93,14 @@ Complete means all of this:
 - A pre-meeting report that opens on what was agreed last time.
 - The evaluation set, with published numbers.
 
-**Not at launch:** dashboards, multi-workspace administration, billing, analytics, a web
+**Not part of the product:** dashboards, multi-workspace administration, billing, analytics, a web
 application. None of them is part of the loop.
 
 **Build order.** Extraction is built first because everything downstream is worthless if it is
-wrong, and because it can be measured on its own. That is a sequencing decision about the work,
-not a reduced product to ship.
+wrong, and because it can be measured on its own. That is a sequencing decision about the work.
+
+**Capabilities gated on a measurement** — automatic ticket creation is the current example — are
+part of the product. They switch on when their condition is met, not in a later version.
 
 ---
 

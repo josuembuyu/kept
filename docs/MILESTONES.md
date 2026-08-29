@@ -1,7 +1,7 @@
 # Milestones
 
-Launch means the whole loop is closed — see [`SCOPE.md`](SCOPE.md). These milestones are the order
-in which it gets built, not a series of smaller products to ship.
+The product is the whole loop, closed — see [`SCOPE.md`](SCOPE.md). These milestones are the order
+in which it gets built. They are not versions, and none of them is a product on its own.
 
 Each one has a **check**: a condition that can be verified, not a feeling that it is done. A
 milestone is not finished because the code runs.
@@ -137,7 +137,7 @@ Same result, through a self-hosted bot.
 
 ---
 
-## M9 — Launch readiness
+## M9 — Ready for other people
 
 | Feature | |
 |---|---|

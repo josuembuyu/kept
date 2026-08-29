@@ -153,6 +153,17 @@ a merged pull request.
 lives", and it upgrades the commitment from `kept (self-reported)` to `kept (verified)`, because a
 ticket moving to done is an observable signal.
 
+**Creation is a one-click action by default.** Extraction is not perfect, every false positive
+would become a real ticket someone has to clean out of their board, and not every commitment
+belongs in a tracker — "I'll call the client" does not. The click costs nothing, because the
+confirmation message exists anyway.
+
+**Automatic creation is gated on a measurement, not on a version.** A team can switch it on once
+attribution accuracy reaches 99% and extraction precision on `high` + `verifiable` commitments
+reaches 95%, measured on real traffic. It never applies to `declarative` commitments or to anything
+below `high` confidence. The confirmation still goes out, and "Not me" deletes the ticket Kept
+created — automation stays reversible through a gesture that already existed.
+
 **Reopen if.** Teams start expecting Kept to keep the ticket and the commitment in sync in both
 directions — which is ticket management, and is where this stops.
 
