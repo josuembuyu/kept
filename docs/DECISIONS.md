@@ -177,8 +177,8 @@ repository, documents, messages or calendars looking for signals.
 **Why.** A ticket status is deterministic: it is read, not judged. Inferring completion from a
 merged pull request means a model deciding whether a fuzzy signal satisfies a commitment — which
 is exactly where false `kept` verdicts come from, and false `kept` is the blocking metric.
-Refusing code access also turns the anti-surveillance rule from a promise into a technical fact:
-Kept cannot watch what it never reads.
+Not reading the code is a decision, deliberately recorded here rather than promised in
+`SECURITY.md` — so that adding a source later is a decision to revisit, not a promise to break.
 
 **What it costs.** Commitments with no ticket have no automatic path. They resolve either on the
 owner's word, as `kept (self-reported)`, or not at all.
