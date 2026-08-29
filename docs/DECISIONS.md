@@ -35,15 +35,15 @@ it. Building browser automation in-house would be maintained forever and bought 
 
 ---
 
-## D3 — Email first, Slack immediately after
+## D3 — Email and Slack, both from the start
 
-The recap and the confirmation go out by email before Slack, because email requires nothing to be
-installed and reaches participants outside the team.
+The recap and the confirmation go out on both channels. Each person is reached where they already
+are.
 
-**Why.** The first user of Kept should not have to install anything, and external participants —
-clients, freelancers — are never in the workspace.
+**Why.** Slack carries internal engagement; email is the only channel that reaches participants
+outside the workspace. Shipping one without the other leaves half the room unreachable.
 
-**Reopen if.** Email engagement is so low that confirmations do not come back.
+**Reopen if.** Duplicate delivery becomes noise for people present on both.
 
 ---
 
@@ -59,7 +59,35 @@ reporting `kept` without evidence stays intact, and the distinction stays visibl
 
 ---
 
-## D5 — Precision over recall
+## D5 — The calendar is connected
+
+Kept connects to the calendar and reads the recurring event to know which meeting follows which.
+
+**Why.** The pre-meeting report is the mechanism that makes people follow through, and it needs
+the series. Inferring it from participants and title similarity fails silently on a rename or a
+new invitee.
+
+**Cost, stated plainly.** This is a real setup step and the only integration asked for. It is
+requested once, never per meeting.
+
+**Reopen if.** Calendar access proves to be a blocking objection during adoption.
+
+---
+
+## D6 — Declarative commitments are kept, not dropped
+
+A commitment nothing can ever verify — "I'll call the client" — is extracted and followed like any
+other. It is marked declarative from creation and can only ever reach `kept (self-reported)`.
+
+**Why.** Dropping them would discard most of what is agreed in any meeting that is not an
+engineering meeting.
+
+**Reopen if.** Declarative commitments turn out to be ignored by owners at a much higher rate than
+verifiable ones.
+
+---
+
+## D7 — Precision over recall
 
 When extraction is uncertain, Kept omits rather than guesses.
 
@@ -72,8 +100,4 @@ the first message a person receives.
 
 ## Open
 
-- **Commitments with no digital trace.** "I'll call the client" leaves no signal anywhere. Whether
-  these are tracked as self-reported only, or excluded from extraction entirely.
-- **Meeting series.** How Kept knows that this meeting is the next occurrence of that one, which
-  the pre-meeting report depends on.
 - **Name.** "Kept" is a working name; the domain has not been checked.

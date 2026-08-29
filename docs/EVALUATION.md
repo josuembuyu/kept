@@ -29,6 +29,7 @@ never after.
 | Confirmation rate | Commitments the owner accepts unedited | proxy for extraction quality in the wild |
 | **False `kept` rate** | Commitments reported done that were not | **blocking** |
 | Justified abstention | `unknown` verdicts that were correct | high |
+| Evidence nature accuracy | Commitments correctly classified verifiable vs declarative | high |
 | Annoyance rate | Ignored messages and opt-outs | low |
 
 **False `kept` rate is the blocking metric.** No other number compensates for it. A product that

@@ -1,6 +1,6 @@
 # Scope
 
-What Kept does, what it refuses to do, and how the first version is cut.
+What Kept does, what it refuses to do, and what has to be true at launch.
 This document is written before the code and is expected to constrain it.
 
 ---
@@ -73,18 +73,27 @@ delay the only part of Kept that is differentiated.
 
 ---
 
-## V1 — three weeks
+## At launch
 
-| Week | Built |
-|---|---|
-| 1 | Transcript ingestion, commitment extraction with the four fields, file output. Run against real meetings from day one. |
-| 2 | Confirmation message, one channel. One automatic evidence source, chosen for coverage. |
-| 3 | Pre-meeting report, evaluation harness. |
+Kept launches with the whole loop closed. A capture that produces commitments nobody follows is
+not a smaller version of the product — it is a different, worse one.
 
-**Cut from v1:** accounts, dashboard, multi-team, several integrations, billing, web UI.
+Complete means all of this:
 
-**One evidence source only.** Pick the one covering the largest share of real commitments —
-likely the git host or the issue tracker.
+- Transcripts from a forwarded summary, from Zoom, and from Meet.
+- Commitment extraction with the four fields, and gaps reported where they cannot be filled.
+- A recap to the group, by email **and** Slack.
+- Confirmation by the owner, in one action.
+- Evidence tracking against connected sources.
+- A pre-meeting report that opens on what was agreed last time.
+- The evaluation set, with published numbers.
+
+**Not at launch:** dashboards, multi-workspace administration, billing, analytics, a web
+application. None of them is part of the loop.
+
+**Build order.** Extraction is built first because everything downstream is worthless if it is
+wrong, and because it can be measured on its own. That is a sequencing decision about the work,
+not a reduced product to ship.
 
 ---
 

@@ -4,7 +4,7 @@ Product decisions, written before the code and expected to constrain it.
 
 | Document | What it settles |
 |---|---|
-| [`SCOPE.md`](SCOPE.md) | What Kept does and refuses to do, the product rules, the v1 cut, the risks |
+| [`SCOPE.md`](SCOPE.md) | What Kept does and refuses to do, the product rules, what launch includes, the risks |
 | [`COMMITMENT.md`](COMMITMENT.md) | The object the whole product turns on: four fields, three states, lifecycle |
 | [`CAPTURE.md`](CAPTURE.md) | Where transcripts come from — forwarded email, Zoom, Meet — and the recording rules |
 | [`FOLLOW-UP.md`](FOLLOW-UP.md) | What happens between two meetings: recap, confirmation, evidence, report |

@@ -23,11 +23,11 @@ knowing the question comes back in front of the same people.
 
 ## Channels
 
-The recap goes to the group by **email and Slack**. Email ships first, for one reason: it requires
-nothing to be installed, and it reaches people outside the team — a client, a freelancer, a
-contractor — who will never be in the workspace.
+The recap goes to the group by **email and Slack**, both from the start. Neither replaces the
+other: Slack is where internal teams actually read things, and email is the only channel that
+reaches the people who will never be in the workspace — a client, a freelancer, a contractor.
 
-Slack follows immediately after, because that is where internal teams actually read things.
+Each person receives their confirmation wherever they already are. Nobody is asked to move.
 
 | | Email | Slack |
 |---|---|---|
@@ -45,6 +45,19 @@ One message, one action:
 That is the only thing Kept ever asks of anyone. There is no per-commitment configuration, no
 tracking rules to set, no source to pick. If information is missing, Kept marks it `unknown` and
 moves on rather than asking a human to fill a form.
+
+## Knowing which meeting comes next
+
+The pre-meeting report only works if Kept knows that Tuesday's meeting is the next occurrence of
+last Tuesday's. That comes from the calendar: Kept connects to it and reads the recurring event,
+its participants, and the date of the next occurrence.
+
+Guessing the series from participants and title similarity was considered and rejected — it breaks
+the moment a meeting is renamed or someone new is invited, and it fails silently, which is the
+worst way for this feature to fail.
+
+The calendar connection is a real setup step, and the only one. It is asked once, at the start,
+never per meeting and never per commitment.
 
 ## Evidence
 
