@@ -46,20 +46,44 @@ Works with the notetaker you already use. Kept can also capture the meeting itse
 
 ## 🚀 Quick start
 
-> Not available yet — the first release is in progress. This is the intended interface.
+Extraction works today. The rest of the loop is in progress.
 
 ```bash
-npx kept ingest ./transcript.txt     # extract commitments
-npx kept status                      # what is kept, in progress, unknown
-npx kept report                      # pre-meeting summary
+npm install
+export ANTHROPIC_API_KEY=sk-ant-...
+
+npm run dev -- ingest fixtures/sample-transcript.txt --date 2026-08-24
 ```
+
+```
+2 commitment(s)
+
+  ● Marc — Open the PR fixing the Belgian tax rates table
+     due 2026-08-27
+     evidence: a merged pull request touching the rates config
+     "I'll push a fix for it before Thursday."
+
+1 thing(s) agreed but not trackable
+
+  ⚠ Follow up with customers about blank invoice PDFs
+     missing: no deadline
+     "I don't know when I'll hear back."
+```
+
+Output is written to `.kept/<transcript>.json`.
+
+| Command | State |
+|---|---|
+| `kept ingest <transcript>` | works |
+| `kept status` | planned |
+| `kept report` | planned |
 
 ## 🗺 Roadmap
 
 | Milestone | State |
 |---|---|
-| Transcript ingestion + commitment extraction | in progress |
-| Confirmation loop | planned |
+| Transcript ingestion + commitment extraction | **done** |
+| Confirmation loop | in progress |
 | Evidence tracking, one source | planned |
 | Pre-meeting report | planned |
 | Evaluation harness | planned |

@@ -1,0 +1,36 @@
+Weekly product sync — 6 participants
+
+Sarah: Okay, first thing. The checkout page is still showing the old tax rate for
+Belgian customers. Marc, you looked at this last week?
+
+Marc: I did. It's the rates table, it hasn't been refreshed since March. I'll push a
+fix for it before Thursday.
+
+Sarah: Thanks. Does that need a migration?
+
+Marc: No, it's config. I'll open the PR tomorrow so you can look at it.
+
+Priya: While we're on billing — a few people wrote in about the invoice PDFs being
+blank. I haven't been able to reproduce it.
+
+Sarah: Can someone take that?
+
+Priya: I can ask the customers for more detail, but I don't know when I'll hear back.
+
+Sarah: Fine, let's leave it open for now. Second thing — the onboarding flow. We said
+we'd cut it from six steps to four. Where are we?
+
+Tom: I've got the designs. I'll share them in the design channel by end of week and we
+can review together next Monday.
+
+Sarah: Good. And someone should probably talk to support about the new flow before we
+ship it.
+
+Priya: I'll do that. I'll book something with Lena for next week.
+
+Sarah: Last thing, and this is more of a general point — we really need to be better at
+writing things down after these calls.
+
+Tom: Agreed.
+
+Sarah: Alright, that's it. Marc, Tom, Priya — see you next Tuesday.
