@@ -107,12 +107,18 @@ set is 20 hand-annotated real meeting transcripts, and results are published her
 
 ## 📚 Documentation
 
-- [`docs/SCOPE.md`](docs/SCOPE.md) — perimeter, product rules, v1 cut, risks, open questions
+- [`docs/SCOPE.md`](docs/SCOPE.md) — what Kept does and refuses to do
+- [`docs/COMMITMENT.md`](docs/COMMITMENT.md) — the four fields, three states, lifecycle
+- [`docs/CAPTURE.md`](docs/CAPTURE.md) — where transcripts come from, and the recording rules
+- [`docs/FOLLOW-UP.md`](docs/FOLLOW-UP.md) — what happens between two meetings
+- [`docs/EVALUATION.md`](docs/EVALUATION.md) — how Kept is measured
+- [`docs/DECISIONS.md`](docs/DECISIONS.md) — provisional decisions and their reopen triggers
 
 ## 🤝 Contributing
 
 Product decisions live in [`docs/SCOPE.md`](docs/SCOPE.md) and are deliberately narrow. Issues
-that challenge a decision are welcome; pull requests that quietly widen the scope are not.
+that challenge a decision are welcome; pull requests that quietly widen the scope are not. See
+[CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## 📄 License
 
