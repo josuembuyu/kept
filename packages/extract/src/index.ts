@@ -1,6 +1,6 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
-import { Extraction } from "./types.js";
+import { Extraction } from "@kept/core";
 
 const MODEL = "claude-opus-5";
 

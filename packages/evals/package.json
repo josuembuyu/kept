@@ -1,0 +1,15 @@
+{
+  "name": "@kept/evals",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "eval": "tsx src/run.ts"
+  },
+  "dependencies": {
+    "@kept/core": "workspace:*",
+    "@kept/extract": "workspace:*"
+  }
+}

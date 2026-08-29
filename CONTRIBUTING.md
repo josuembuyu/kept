@@ -13,13 +13,31 @@ Kept is deliberately narrow. The fastest way to have a change accepted is to che
 - **Anything touching extraction needs eval numbers.** A prompt or schema change is judged on the
   evaluation set, not on a single example that looks better. See [`docs/EVALUATION.md`](docs/EVALUATION.md).
 
+## Repository layout
+
+Turborepo monorepo, pnpm workspaces.
+
+```
+apps/
+  cli/          the kept command line
+packages/
+  core/         the domain: commitment, gaps, states, lifecycle
+  extract/      transcript to commitments
+  evals/        the evaluation harness and its set
+```
+
+Packages arrive as milestones land — capture, ingestion, notification, evidence and calendar each
+become their own package. See [`docs/MILESTONES.md`](docs/MILESTONES.md).
+
 ## Local setup
 
 ```bash
-npm install
+pnpm install
 export ANTHROPIC_API_KEY=sk-ant-...
-npm run dev -- ingest fixtures/sample-transcript.txt --date 2026-08-24
-npm run typecheck
+
+pnpm --filter @kept/cli dev ingest fixtures/sample-transcript.txt --date 2026-08-24
+pnpm typecheck
+pnpm eval
 ```
 
 ## Transcripts

@@ -1,27 +1,20 @@
 {
   "name": "kept",
-  "version": "0.0.1",
+  "private": true,
   "description": "Every meeting ends with commitments. Kept finds out which ones were kept.",
   "license": "MIT",
-  "type": "module",
-  "bin": {
-    "kept": "./dist/cli.js"
-  },
-  "files": [
-    "dist"
-  ],
+  "packageManager": "pnpm@8.15.8",
   "scripts": {
-    "build": "tsc",
-    "dev": "tsx src/cli.ts",
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@anthropic-ai/sdk": "^0.122.0",
-    "zod": "^4.5.4"
+    "build": "turbo run build",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "dev": "turbo run dev",
+    "eval": "turbo run eval"
   },
   "devDependencies": {
+    "turbo": "^2.3.0",
+    "typescript": "^5.7.0",
     "@types/node": "^22.0.0",
-    "tsx": "^4.19.0",
-    "typescript": "^5.7.0"
+    "tsx": "^4.19.0"
   }
 }

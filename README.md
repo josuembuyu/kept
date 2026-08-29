@@ -49,10 +49,10 @@ Works with the notetaker you already use. Kept can also capture the meeting itse
 Extraction works today. The rest of the loop is in progress.
 
 ```bash
-npm install
+pnpm install
 export ANTHROPIC_API_KEY=sk-ant-...
 
-npm run dev -- ingest fixtures/sample-transcript.txt --date 2026-08-24
+pnpm --filter @kept/cli dev ingest fixtures/sample-transcript.txt --date 2026-08-24
 ```
 
 ```
@@ -112,6 +112,7 @@ set is 20 hand-annotated real meeting transcripts, and results are published her
 - [`docs/CAPTURE.md`](docs/CAPTURE.md) — where transcripts come from, and the recording rules
 - [`docs/FOLLOW-UP.md`](docs/FOLLOW-UP.md) — what happens between two meetings
 - [`docs/EVALUATION.md`](docs/EVALUATION.md) — how Kept is measured
+- [`docs/MILESTONES.md`](docs/MILESTONES.md) — the build order and what closes each milestone
 - [`docs/DECISIONS.md`](docs/DECISIONS.md) — provisional decisions and their reopen triggers
 
 ## 🤝 Contributing

@@ -1,0 +1,16 @@
+{
+  "name": "@kept/cli",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "bin": { "kept": "./dist/index.js" },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "dev": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@kept/core": "workspace:*",
+    "@kept/extract": "workspace:*"
+  }
+}

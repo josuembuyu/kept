@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import fs from "node:fs";
 import path from "node:path";
-import { extract } from "./extract.js";
-import type { Commitment, Gap } from "./types.js";
+import { extract } from "@kept/extract";
+import type { Commitment, Gap } from "@kept/core";
 
 const USAGE = `kept — every meeting ends with commitments
 
