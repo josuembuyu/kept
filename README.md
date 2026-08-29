@@ -1,131 +1,91 @@
-<h1 align="center">Kept</h1>
+<div align="center">
+  <h1>Kept</h1>
+  <p><strong>Your notetaker writes down what the team decided. Kept finds out whether it happened.</strong></p>
+  <p>
+    <a href="docs/SCOPE.md">Scope</a> ·
+    <a href="#roadmap">Roadmap</a> ·
+    <a href="#evaluation">Evaluation</a> ·
+    <a href="#contributing">Contributing</a>
+  </p>
+  <p>
+    <img alt="status" src="https://img.shields.io/badge/status-early%20development-orange">
+    <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-blue"></a>
+  </p>
+</div>
 
-<p align="center">
-  <strong>Your notetaker writes down what the team decided.<br/>Kept finds out whether it happened.</strong>
-</p>
+Kept is an open source agent that reads the transcript your notetaker already produced, extracts
+the commitments people made, and follows them until there is evidence they happened. Between
+**44% and 73%** of action items agreed in a meeting are never completed — extraction is a solved
+problem, follow-through is not.
 
-<p align="center">
-  <a href="#status"><img alt="status" src="https://img.shields.io/badge/status-early%20development-orange"></a>
-  <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-blue"></a>
-</p>
+## ✨ Features
 
----
+- **Commitment extraction** — every commitment carries four fields: who, what, when, and *what
+  would prove it is done*. If one is missing, Kept reports the gap instead of inventing a task.
+- **One-click confirmation** — the owner gets a single message to accept or correct. That is the
+  only thing Kept ever asks of anyone.
+- **Evidence tracking** — Kept looks for signals of progress in connected sources rather than
+  asking people for status.
+- **Three states, never two** — `kept` / `in progress` / `unknown`. Kept never reports something
+  as done without evidence, and never reports absence of signal as failure.
+- **Pre-meeting report** — what was agreed, what happened, what did not move.
 
-## The problem
-
-AI notetakers got very good at one half of the job.
-
-> "Most AI notetaker tools are good at transcription, but almost none are good at what happens
-> *after* transcription — action items don't move anywhere, and summaries sit in a standalone app
-> nobody returns to."
-
-The numbers behind that sentence are worse than they sound: **44–73% of action items agreed in a
-meeting are never completed**, and 71% of meetings fail to achieve their objective.
-
-The gap is not extraction. Half a dozen tools already push action items into Notion, Linear or
-Jira. The gap is **follow-through** — nobody checks, so nothing does.
-
-## What Kept does
-
-Kept reads the transcript your notetaker already produced, pulls out the **commitments**, and then
-does the part nobody does: it follows them until there is evidence they happened.
+## 🔁 How it works
 
 ```
-1. INGEST      Reads the transcript from the notetaker you already use.
-               Kept records nothing and transcribes nothing.
-
-2. EXTRACT     Isolates commitments. Anything ambiguous is surfaced as
-               ambiguous, never guessed.
-
-3. CONFIRM     Each person gets one message: "you said you'd do X by
-               Thursday — right?" One click. The only thing Kept ever
-               asks of anyone.
-
-4. TRACK       Looks for evidence of progress in connected sources.
-               Follows up only when a deadline nears with no signal at all.
-
-5. REPORT      Before the next meeting: here is what was agreed, here is
-               what happened, here is what did not move.
+transcript ──▶ extract ──▶ confirm ──▶ track ──▶ report
+   from         four        one         evidence    before the
+ your existing  fields    message      in connected  next meeting
+  notetaker    per item   per owner      sources
 ```
 
-## The commitment
+Kept records nothing, transcribes nothing, and replaces none of your tools.
 
-Kept does not track "action items". It tracks **commitments**, and a commitment needs four things.
-Without all four, it does not exist:
+## 🚀 Quick start
 
-| Field | Rule |
-|---|---|
-| **Who** | A named person. Never "the team". |
-| **What** | Stated observably. |
-| **When** | A deadline. |
-| **Evidence** | What would concretely show this is done. |
+> Not available yet — the first release is in progress. This is the intended interface.
 
-That fourth field is the one no tool produces today, and it is the one that makes tracking
-possible at all.
+```bash
+npx kept ingest ./transcript.txt     # extract commitments
+npx kept status                      # what is kept, in progress, unknown
+npx kept report                      # pre-meeting summary
+```
 
-If Kept cannot fill all four, it does **not** invent a commitment. It reports the gap instead —
-*"the team agreed to look at billing, but nobody was named"* — which is useful information, not a
-failure.
-
-## Three states, never two
-
-| State | Condition |
-|---|---|
-| **Kept** | Evidence exists, and the owner has not contradicted it |
-| **In progress** | A partial signal, or the owner said so |
-| **Unknown** | No signal. Kept says it does not know — never "not done" |
-
-**Hard rule: Kept never reports something as done without evidence.** One false "all good"
-destroys trust faster than ten reminders.
-
-## Design principles
-
-**1. Kept works for the person who made the commitment, not for their manager.**
-Reports go to the group, never up the hierarchy. Without this rule the product becomes a
-surveillance tool, and no team accepts one.
-
-**2. Silence is a valid state.** No daily nagging, no performance score, no leaderboard.
-
-**3. Kept replaces nothing.** Not your notetaker, not your task manager, not your calendar.
-
-## What Kept is not
-
-Not a recorder. Not a transcription service. Not a project manager. Not a way for a manager to
-assign work. Not people analytics.
-
-## Status
-
-**Early development. Not usable yet.** The scope is written down before the code — see
-[`docs/SCOPE.md`](docs/SCOPE.md).
+## 🗺 Roadmap
 
 | Milestone | State |
 |---|---|
 | Transcript ingestion + commitment extraction | in progress |
 | Confirmation loop | planned |
-| Evidence tracking (one source) | planned |
+| Evidence tracking, one source | planned |
 | Pre-meeting report | planned |
 | Evaluation harness | planned |
 
-## How it will be measured
+## 📊 Evaluation
 
 Kept is judged on whether its output can be trusted, not on how much it produces. The evaluation
-set is 20 hand-annotated real meeting transcripts.
+set is 20 hand-annotated real meeting transcripts, and results are published here as they come in
+— including the bad ones.
 
-| Metric | Why it matters |
+| Metric | Result |
 |---|---|
-| Extraction precision / recall | Real commitments found, invented ones caught |
-| Confirmation rate | Commitments the owner accepts unedited — low means bad extraction |
-| **False "kept" rate** | The critical one. Must approach zero |
-| Justified abstention | Cases where Kept said "I don't know" and was right to |
-| Annoyance rate | Ignored messages, opt-outs |
+| Extraction precision | — |
+| Extraction recall | — |
+| Confirmation rate | — |
+| **False `kept` rate** | — |
+| Justified abstention | — |
 
-Results will be published in this README as they come in, including the bad ones.
+`False kept rate` is the blocking metric. No other number compensates for it.
 
-## Contributing
+## 📚 Documentation
 
-The product decisions live in [`docs/SCOPE.md`](docs/SCOPE.md) and are deliberately narrow.
-Issues that challenge a decision are welcome; pull requests that quietly widen the scope are not.
+- [`docs/SCOPE.md`](docs/SCOPE.md) — perimeter, product rules, v1 cut, risks, open questions
 
-## License
+## 🤝 Contributing
+
+Product decisions live in [`docs/SCOPE.md`](docs/SCOPE.md) and are deliberately narrow. Issues
+that challenge a decision are welcome; pull requests that quietly widen the scope are not.
+
+## 📄 License
 
 MIT — see [LICENSE](LICENSE).

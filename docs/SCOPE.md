@@ -28,6 +28,23 @@ meeting analytics · replacing the notetaker, the task manager, or the calendar.
 
 ---
 
+## Product rules
+
+Three decisions that constrain every feature. A proposal that breaks one of them is out of scope,
+whatever its merit.
+
+**1. Kept works for the person who made the commitment, not for their manager.** Reports go to the
+group that was in the meeting, never up the hierarchy. Without this rule the product becomes a
+surveillance tool, and no team accepts one.
+
+**2. Silence is a valid state.** No daily reminders, no performance score, no leaderboard. A
+commitment with no signal is reported as unknown and left alone until its deadline nears.
+
+**3. Kept replaces nothing.** Not the notetaker, not the task manager, not the calendar. Every
+feature must work alongside the tools a team already pays for.
+
+---
+
 ## V1 — three weeks
 
 | Week | Built |
