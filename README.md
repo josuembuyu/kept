@@ -1,6 +1,6 @@
 <div align="center">
   <h1>Kept</h1>
-  <p><strong>Your notetaker writes down what the team decided. Kept finds out whether it happened.</strong></p>
+  <p><strong>Every meeting ends with commitments. Kept finds out which ones were kept.</strong></p>
   <p>
     <a href="docs/SCOPE.md">Scope</a> ·
     <a href="#roadmap">Roadmap</a> ·
@@ -13,10 +13,10 @@
   </p>
 </div>
 
-Kept is an open source agent that reads the transcript your notetaker already produced, extracts
-the commitments people made, and follows them until there is evidence they happened. Between
-**44% and 73%** of action items agreed in a meeting are never completed — extraction is a solved
-problem, follow-through is not.
+Kept is an open source agent that reads a meeting transcript — from the notetaker you already
+use, or from its own capture — extracts the commitments people made, and follows them until there
+is evidence they happened. Between **44% and 73%** of action items agreed in a meeting are never
+completed. Extraction is a solved problem; follow-through is not.
 
 ## ✨ Features
 
