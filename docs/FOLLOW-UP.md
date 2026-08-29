@@ -1,6 +1,6 @@
 # Follow-up
 
-What happens between two meetings. This is the part of the product nobody else builds.
+What happens between two meetings.
 
 ## The loop
 

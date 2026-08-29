@@ -57,31 +57,6 @@ Capture is an option, never a precondition.
 
 ---
 
-## Capture
-
-Kept records meetings itself, as an option. Not to compete with existing notetakers, but because
-the `who` field depends entirely on speaker attribution — and that is where existing tools are
-weakest: Otter is graded D on speaker identification, with around 30% misattribution on
-multi-person calls. A commitment attributed to the wrong person is the worst failure Kept can
-produce, worse than a missed one.
-
-**Route.** A bot that joins the meeting, giving one audio stream per participant. Local system
-audio capture avoids the bot but returns the diarisation problem we are trying to escape.
-
-**Three rules, non-negotiable.** The 2026 lawsuits against notetakers were about exactly this.
-
-1. The recorder's presence is announced explicitly to every participant.
-2. Meeting content is never used to train a model. No default, no setting, no exception.
-3. Retention is short and displayed. The transcript is kept; the audio is not.
-
-**Self-hosting.** Capture, transcription and extraction can all run on infrastructure the team
-controls. This is the answer for anyone who cannot send meeting content to a third party.
-
-**Phase.** Capture ships after the loop is proven, not before. Building audio plumbing first would
-delay the only part of Kept that is differentiated.
-
----
-
 ## The product
 
 Kept is the whole loop, closed. A capture that produces commitments nobody follows is not a
@@ -94,7 +69,7 @@ The product is all of this:
 - Commitment extraction with the four fields, and gaps reported where they cannot be filled.
 - A recap to the group, by email **and** Slack.
 - Confirmation by the owner, in one action.
-- Evidence tracking against connected sources.
+- Resolution from the linked ticket, and from the group where there is none.
 - A pre-meeting report that opens on what was agreed last time.
 - The evaluation set, with published numbers.
 
@@ -106,24 +81,6 @@ wrong, and because it can be measured on its own. That is a sequencing decision 
 
 **Capabilities gated on a measurement** — automatic ticket creation is the current example — are
 part of the product. They switch on when their condition is met, not in a later version.
-
----
-
-## Evaluation
-
-The eval set is 20 real meeting transcripts, annotated by hand. Building it is tedious, and it is
-the step most teams skip — which is exactly why it is the first thing built.
-
-| Metric | Definition |
-|---|---|
-| Extraction precision | Extracted commitments that are real |
-| Extraction recall | Real commitments that were extracted |
-| Confirmation rate | Commitments accepted by their owner without edits |
-| False kept rate | Commitments reported done that were not |
-| Justified abstention | "Unknown" verdicts that were correct |
-| Annoyance rate | Ignored messages and opt-outs |
-
-**False kept rate is the blocking metric.** No other number compensates for it.
 
 ---
 

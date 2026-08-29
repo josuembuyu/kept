@@ -3,7 +3,7 @@
 How the system is put together, and **why** each boundary is where it is. Product decisions live in
 [`SCOPE.md`](SCOPE.md); this document only covers how they are implemented.
 
-Anything not yet decided is marked **open** rather than invented.
+Undecided choices are marked **open** rather than invented.
 
 ---
 
@@ -40,9 +40,8 @@ A chat application would be organised around a conversation. Kept is organised a
                                               email + Slack
 ```
 
-Every arrow crosses a package boundary, and every boundary carries a typed contract. The reason is
-not tidiness: **each stage has to be measurable on its own.** Extraction is judged against
-annotated transcripts without any of the rest existing.
+Every arrow crosses a package boundary with a typed contract, so **each stage is measurable on its
+own**. Extraction is judged against annotated transcripts without the rest existing.
 
 ---
 
@@ -82,8 +81,7 @@ together.
 | Transcription | **open** | Only needed once capture starts, at M7. |
 | Hosting | **open** | Constrained by self-hosting: whatever is chosen must run on someone else's infrastructure. |
 
-Nothing above is chosen for elegance. Each one is chosen because a stage of the pipeline needs it,
-and the open ones stay open until the stage that needs them is built.
+Open choices stay open until the stage that needs them is built.
 
 ---
 

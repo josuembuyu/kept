@@ -3,8 +3,7 @@
 The product is the whole loop, closed — see [`SCOPE.md`](SCOPE.md). These milestones are the order
 in which it gets built. They are not versions, and none of them is a product on its own.
 
-Each one has a **check**: a condition that can be verified, not a feeling that it is done. A
-milestone is not finished because the code runs.
+Each has a **check**: a verifiable condition, not the feeling that the code runs.
 
 ---
 

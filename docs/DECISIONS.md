@@ -1,207 +1,87 @@
 # Decisions
 
-Provisional product decisions, recorded so work can move forward. **Not immutable.** Each one
-carries the signal that would reopen it.
-
-Three categories exist in this repository: rules in [`SCOPE.md`](SCOPE.md) change only by explicit
-decision; decisions here change freely when their trigger fires; open questions become decisions
-once answered.
+Provisional. Each carries the signal that reopens it. Rules that do not change live in
+[`SCOPE.md`](SCOPE.md).
 
 ---
 
-## D1 — Capture is optional, forwarded email is not
-
-Kept captures meetings itself, but the email path is never removed. A team already paying for a
-notetaker must always be able to use Kept without changing anything.
-
-**Why.** Capture is a commodity with well-funded incumbents; follow-through is not. Making capture
-a precondition would trade the differentiated half for the crowded one.
-
-**Reopen if.** Forwarded summaries turn out to be too lossy to extract from reliably — in which
-case capture stops being optional.
-
----
-
-## D2 — Zoom through RTMS, Meet through a self-hosted bot
-
-Zoom is captured with Realtime Media Streams: official, per-participant audio, no bot in the
-meeting. Meet is captured with Attendee, MIT-licensed and self-hostable, because Google's Meet
-Media API requires every participant to be enrolled in a developer preview.
-
-**Why.** Per-participant audio is the whole reason to capture at all — the `who` field depends on
-it. Building browser automation in-house would be maintained forever and bought nothing.
-
-**Reopen if.** Google opens the Meet Media API, or Attendee's coverage proves unreliable.
-
----
-
-## D3 — Email and Slack, both from the start
-
-The recap and the confirmation go out on both channels. Each person is reached where they already
-are.
-
-**Why.** Slack carries internal engagement; email is the only channel that reaches participants
-outside the workspace. Shipping one without the other leaves half the room unreachable.
-
-**Reopen if.** Duplicate delivery becomes noise for people present on both.
-
----
-
-## D4 — Self-reported completion is displayed as such
-
-When an owner states a commitment is done and no external signal exists, Kept records it as
-`kept (self-reported)` rather than `kept`.
-
-**Why.** Saying you did something is evidence of a claim, not evidence of a fact. The rule against
-reporting `kept` without evidence stays intact, and the distinction stays visible.
-
-**Reopen if.** The distinction confuses people more than it protects them.
-
----
-
-## D5 — The calendar is connected
-
-Kept connects to the calendar and reads the recurring event to know which meeting follows which.
-
-**Why.** The pre-meeting report is the mechanism that makes people follow through, and it needs
-the series. Inferring it from participants and title similarity fails silently on a rename or a
-new invitee.
-
-**Cost, stated plainly.** This is a real setup step and the only integration asked for. It is
-requested once, never per meeting.
-
-**Reopen if.** Calendar access proves to be a blocking objection during adoption.
-
----
-
-## D6 — Declarative commitments are kept, not dropped
-
-A commitment nothing can ever verify — "I'll call the client" — is extracted and followed like any
-other. It is marked declarative from creation and can only ever reach `kept (self-reported)`.
-
-**Why.** Dropping them would discard most of what is agreed in any meeting that is not an
-engineering meeting.
-
-**Reopen if.** Declarative commitments turn out to be ignored by owners at a much higher rate than
-verifiable ones.
-
----
-
-## D7 — Precision over recall
-
-When extraction is uncertain, Kept omits rather than guesses.
-
-**Why.** A missed commitment costs one item. An invented one costs the product its credibility on
-the first message a person receives.
-
-**Reopen if.** Recall drops low enough that teams stop finding the output useful.
-
----
-
-## D8 — Commitments originate in meetings
-
-A commitment enters Kept because someone said it in a meeting. Commitments made in writing — a
-Slack thread, an email — are out of scope for now.
-
-**Why.** The meeting is where commitments are made out loud, in front of witnesses, with a next
-occurrence already scheduled. Written channels double the false-positive surface: half of the
-"I'll take a look" in a Slack thread are not commitments, and there is no next meeting at which to
-report them.
-
-**On WhatsApp specifically, this is not a sequencing choice — it is closed.** Group calls are end
--to-end encrypted with no API to join, the Business Calling API is one-to-one only and explicitly
-unsupported in groups, the Groups API only covers groups the business itself created and caps them
-at eight members, and since 15 January 2026 Meta prohibits general-purpose AI assistants on the
-WhatsApp Business Platform.
-
-**Reopen if.** Teams report that most of their commitments are made in writing rather than in
-meetings — in which case Slack threads, not WhatsApp, are the extension.
-
----
-
-## D9 — Bring your own key
-
-Kept runs on the team's own model provider account, self-hosted or hosted.
-
-**Why.** Three reasons, in order. It keeps inference cost out of the product, so there is no
-incentive to mark it up or to quietly downgrade the model. It makes spend visible on the team's own
-bill instead of buried in a subscription. And it is the only version consistent with self-hosting,
-which is the product's real privacy answer.
-
-**Cost, stated plainly.** The team's provider access becomes the constraint — model availability
-and rate limits are theirs, and their errors become ours to surface. In hosted mode Kept has to
-store a credential that can spend money, because extraction runs after the meeting with nobody
-present. The guarantees around that are in [`SECURITY.md`](SECURITY.md) and are structural —
-write-only, encrypted with a key held elsewhere, never logged, deletable — rather than promised.
-
-**Reopen if.** Requiring a provider account turns out to block teams who would otherwise adopt, in
-which case a managed option is added alongside it — never instead of it.
-
----
-
-## D10 — Creating a ticket is a destination, not management
-
-From the recap, an owner can push their commitment into Linear or Jira in one action. Kept then
-watches that ticket as an evidence source.
-
-**Where the line sits.** Kept **writes once**, at creation, on the owner's action. It never owns the
-board, never syncs status back into it, never creates tickets nobody asked for, and never becomes
-the place where work is organised. After creation the ticket is read-only to Kept — a signal, like
-a merged pull request.
-
-**Why.** It removes the one manual step between "I said I would" and "it exists where my work
-lives", and it upgrades the commitment from `kept (self-reported)` to `kept (verified)`, because a
-ticket moving to done is an observable signal.
-
-**Creation is a one-click action by default.** Extraction is not perfect, every false positive
-would become a real ticket someone has to clean out of their board, and not every commitment
-belongs in a tracker — "I'll call the client" does not. The click costs nothing, because the
-confirmation message exists anyway.
-
-**Automatic creation is gated on a measurement, not on a version.** A team can switch it on once
-attribution accuracy reaches 99% and extraction precision on `high` + `verifiable` commitments
-reaches 95%, measured on real traffic. It never applies to `declarative` commitments or to anything
-below `high` confidence. The confirmation still goes out, and "Not me" deletes the ticket Kept
-created — automation stays reversible through a gesture that already existed.
-
-**Reopen if.** Teams start expecting Kept to keep the ticket and the commitment in sync in both
-directions — which is ticket management, and is where this stops.
-
----
-
-## D11 — Evidence comes from the linked ticket, not from the code
-
-The only automatic evidence source is a ticket linked to a commitment. Kept does not read the
-repository, documents, messages or calendars looking for signals.
-
-**Why, first reason.** Reading a repository, documents and messages to infer how work is
-progressing is what a project management tool does. "Where are we on this?" is Jira's job. Kept
-answers a different question — *does what was said come back?* — and a tool that watches everywhere
-to deduce status has quietly become the other thing.
-
-**Why, second reason.** A ticket status is deterministic: it is read, not judged. Inferring
-completion from a merged pull request means a model deciding whether a fuzzy signal satisfies a
-commitment — which is exactly where false `kept` verdicts come from, and false `kept` is the
-blocking metric.
-
-Not reading the code is recorded here as a decision rather than promised in `SECURITY.md`, so that
-adding a source later is an arbitration to reopen, not a promise to break.
-
-**What it costs.** Commitments with no ticket have no automatic path. They resolve either on the
-owner's word, as `kept (self-reported)`, or not at all.
-
-**Why that is acceptable.** The pre-meeting report is the mechanism, not a fallback. What goes into
-a tracker is verified by machine; everything else is put back in front of the group, which is what
-made people act in the first place.
-
-**Reminders stay.** One reminder as a deadline nears with no signal — the restrained policy in
-`FOLLOW-UP.md` is unchanged. Dropping code surveillance is not the same as going silent.
-
-**Measured.** The share of commitments that receive a ticket is tracked. If it is very low,
-machine verification covers almost nothing and we learn that in weeks rather than after building a
-retrieval layer.
-
-**Reopen if.** That share turns out to be too low for the report alone to carry the rest.
+**D1 — Capture is optional, forwarded email is not.**
+A team already paying for a notetaker uses Kept by forwarding what it already receives. Capture is
+never a precondition.
+*Reopen if* forwarded summaries prove too lossy to extract from.
+
+**D2 — Zoom through RTMS, Meet through a self-hosted bot.**
+RTMS gives per-participant audio with no bot in the meeting. Google's Meet Media API requires every
+participant to be enrolled in a developer preview, so Meet goes through Attendee (MIT,
+self-hostable) rather than in-house browser automation.
+*Reopen if* Google opens the API, or Attendee proves unreliable.
+
+**D3 — Email and Slack, both.**
+Slack carries internal engagement; email is the only channel reaching people outside the workspace.
+*Reopen if* duplicate delivery becomes noise.
+
+**D4 — Self-reported completion is displayed as such.**
+`kept (self-reported)` when the owner says so and nothing external exists. Saying you did something
+is evidence of a claim, not of a fact.
+*Reopen if* the distinction confuses more than it protects.
+
+**D5 — The calendar is connected.**
+The pre-meeting report needs the series. Inferring it from participants and title fails silently on
+a rename. This is the only integration asked for, once.
+*Reopen if* calendar access blocks adoption.
+
+**D6 — Declarative commitments are kept.**
+"I'll call the client" is extracted and followed like any other, marked declarative from creation,
+and can only reach `kept (self-reported)`. Dropping them would discard most of what is agreed in
+non-engineering meetings.
+*Reopen if* owners ignore them at a much higher rate.
+
+**D7 — Precision over recall.**
+When uncertain, Kept omits. A missed commitment costs one item; an invented one costs credibility
+on the first message someone receives.
+*Reopen if* recall drops low enough that teams stop finding the output useful.
+
+**D8 — Commitments originate in meetings.**
+Written channels double the false-positive surface and have no next meeting at which to report.
+WhatsApp is closed rather than deferred: encrypted group calls with no join API, a one-to-one-only
+calling API, a groups API limited to business-created groups of eight, and Meta's ban on
+general-purpose AI assistants since January 2026.
+*Reopen if* teams report most commitments are made in writing — in which case Slack threads, not
+WhatsApp.
+
+**D9 — Bring your own key.**
+Kept runs on the team's provider account. It keeps inference cost out of the product, makes spend
+visible on their own bill, and is the only version consistent with self-hosting. In hosted mode the
+key is stored, because extraction runs after the meeting with nobody present — guarantees in
+[`SECURITY.md`](SECURITY.md) are structural, not promised. Their model access and rate limits
+become the constraint.
+*Reopen if* requiring a provider account blocks adoption — a managed option would be added
+alongside, never instead.
+
+**D10 — Creating a ticket is a destination, not management.**
+From the recap, one action pushes a commitment into Linear or Jira. Kept writes once, then only
+reads. It never owns the board, never syncs back, never creates tickets nobody asked for.
+
+*Creation is one click by default* — extraction is not perfect, every false positive would become a
+ticket someone has to clean out, and not every commitment belongs in a tracker.
+
+*Automatic creation is gated on a measurement, not a version.* A team switches it on once
+attribution accuracy reaches 99% and precision on `high` + `verifiable` commitments reaches 95% on
+real traffic. Never for `declarative` or below `high`. The confirmation still goes out, and "Not
+me" deletes the ticket.
+*Reopen if* teams expect two-way sync — which is ticket management.
+
+**D11 — Evidence is the linked ticket, not the code.**
+Reading repositories, documents and messages to infer progress is what a project management tool
+does. Kept answers a different question. Second reason: a ticket status is read, not judged, which
+is where false `kept` verdicts come from.
+
+Commitments with no ticket resolve on the owner's word or go back to the group in the report — the
+report is the mechanism, not a fallback. Reminders are unchanged. This is recorded as a decision
+rather than promised in `SECURITY.md`, so adding a source later is an arbitration, not a broken
+promise.
+*Reopen if* the share of commitments receiving a ticket is too low for the report to carry the rest.
+That share is measured from the start.
 
 ---
 

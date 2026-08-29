@@ -1,9 +1,7 @@
 # Extraction, step by step
 
-The one place in Kept where a model does the work. This document explains every decision in
-`packages/extract`, and why it is that way rather than another way.
-
-Read it alongside [`COMMITMENT.md`](COMMITMENT.md), which defines the object being produced.
+The one place a model does the work. Every decision in `packages/extract`, and why it is that way.
+The object being produced is defined in [`COMMITMENT.md`](COMMITMENT.md).
 
 ---
 
@@ -17,8 +15,7 @@ This is not summarisation. It is extraction under **asymmetric error cost**:
 | Inventing a commitment | Someone receives a message about a promise they never made. The product loses credibility on first contact. |
 | **Attributing to the wrong person** | **The worst possible outcome.** Not a partial success — a different, harmful output. |
 
-Everything below follows from that table. When a design choice trades recall for precision, that is
-deliberate.
+Everything below follows from that table.
 
 ---
 
