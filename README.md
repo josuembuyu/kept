@@ -20,22 +20,14 @@ completed. Extraction is a solved problem; follow-through is not.
 
 ## ✨ Features
 
-- **Commitment extraction** — every commitment carries four fields: who, what, when, and *what
-  would prove it is done*. If one is missing, Kept reports the gap instead of inventing a task.
-- **One-click confirmation** — the owner gets a single message to accept, correct, or push the
-  commitment into Linear or Jira. That is the only thing Kept ever asks of anyone.
-- **Resolution from the ticket** — a linked ticket reaching done resolves its commitment. Kept
-  never reads your repository, documents or messages to infer progress; deducing status from
-  everywhere is what a project management tool does.
-- **Honest states** — `kept (verified)`, `kept (self-reported)`, `in progress`, `unknown`. Saying
-  you did something is evidence of a claim, not of a fact, and absence of signal is never reported
-  as failure.
+- **Commitment extraction** — four fields per commitment: who, what, when, and what would prove
+  it is done. Missing one, and Kept reports the gap instead of inventing a task.
+- **One-click confirmation** — accept, correct, or push it into Linear or Jira.
+- **Resolution from the ticket** — a linked ticket reaching done resolves its commitment.
+- **Honest states** — `kept (verified)`, `kept (self-reported)`, `in progress`, `unknown`.
 - **Pre-meeting report** — what was agreed, what happened, what did not move.
-- **Optional capture** — Kept can record the meeting itself when speaker attribution matters.
-  Self-hostable end to end, for teams that cannot send meeting content to a third party.
-- **Your own model key** — Kept runs on your provider account. Self-hosted, the key never leaves
-  your machine. Hosted, it is write-only and encrypted with a key held elsewhere. See
-  [`docs/SECURITY.md`](docs/SECURITY.md).
+- **Optional capture** — Zoom and Meet, when speaker attribution matters. Self-hostable.
+- **Your own model key** — Kept runs on your provider account. See [`docs/SECURITY.md`](docs/SECURITY.md).
 
 ## 🔁 How it works
 
