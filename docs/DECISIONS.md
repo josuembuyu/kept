@@ -98,6 +98,27 @@ the first message a person receives.
 
 ---
 
+## D8 — Commitments originate in meetings
+
+A commitment enters Kept because someone said it in a meeting. Commitments made in writing — a
+Slack thread, an email — are out of scope for now.
+
+**Why.** The meeting is where commitments are made out loud, in front of witnesses, with a next
+occurrence already scheduled. Written channels double the false-positive surface: half of the
+"I'll take a look" in a Slack thread are not commitments, and there is no next meeting at which to
+report them.
+
+**On WhatsApp specifically, this is not a sequencing choice — it is closed.** Group calls are end
+-to-end encrypted with no API to join, the Business Calling API is one-to-one only and explicitly
+unsupported in groups, the Groups API only covers groups the business itself created and caps them
+at eight members, and since 15 January 2026 Meta prohibits general-purpose AI assistants on the
+WhatsApp Business Platform.
+
+**Reopen if.** Teams report that most of their commitments are made in writing rather than in
+meetings — in which case Slack threads, not WhatsApp, are the extension.
+
+---
+
 ## Open
 
 - **Name.** "Kept" is a working name; the domain has not been checked.
