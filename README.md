@@ -22,12 +22,14 @@ completed. Extraction is a solved problem; follow-through is not.
 
 - **Commitment extraction** — every commitment carries four fields: who, what, when, and *what
   would prove it is done*. If one is missing, Kept reports the gap instead of inventing a task.
-- **One-click confirmation** — the owner gets a single message to accept or correct. That is the
-  only thing Kept ever asks of anyone.
-- **Evidence tracking** — Kept looks for signals of progress in connected sources rather than
-  asking people for status.
-- **Three states, never two** — `kept` / `in progress` / `unknown`. Kept never reports something
-  as done without evidence, and never reports absence of signal as failure.
+- **One-click confirmation** — the owner gets a single message to accept, correct, or push the
+  commitment into Linear or Jira. That is the only thing Kept ever asks of anyone.
+- **Resolution from the ticket** — a linked ticket reaching done resolves its commitment. Kept
+  never reads your repository, documents or messages to infer progress; deducing status from
+  everywhere is what a project management tool does.
+- **Honest states** — `kept (verified)`, `kept (self-reported)`, `in progress`, `unknown`. Saying
+  you did something is evidence of a claim, not of a fact, and absence of signal is never reported
+  as failure.
 - **Pre-meeting report** — what was agreed, what happened, what did not move.
 - **Optional capture** — Kept can record the meeting itself when speaker attribution matters.
   Self-hostable end to end, for teams that cannot send meeting content to a third party.
@@ -38,14 +40,15 @@ completed. Extraction is a solved problem; follow-through is not.
 ## 🔁 How it works
 
 ```
-transcript ──▶ extract ──▶ confirm ──▶ track ──▶ report
-   from         four        one         evidence    before the
- your existing  fields    message      in connected  next meeting
-  notetaker    per item   per owner      sources
+transcript ──▶ extract ──▶ confirm ──▶ resolve ──▶ report
+    from         four       one          linked      before the
+  Zoom, Meet,   fields    message        ticket     next meeting
+ or a forwarded per item  per owner    or the group
+    summary
 ```
 
-Works with the notetaker you already use. Kept can also capture the meeting itself — see
-[`docs/SCOPE.md`](docs/SCOPE.md).
+Works with the notetaker you already use, and can capture Zoom and Meet itself — see
+[`docs/CAPTURE.md`](docs/CAPTURE.md).
 
 ## 🚀 Quick start
 
@@ -87,10 +90,12 @@ Output is written to `.kept/<transcript>.json`.
 |---|---|
 | Transcript ingestion + commitment extraction | **done** |
 | Confirmation loop | in progress |
-| Evidence tracking, one source | planned |
+| Push to Linear / Jira | planned |
+| Resolution from the linked ticket | planned |
+| Calendar and meeting series | planned |
 | Pre-meeting report | planned |
 | Evaluation harness | planned |
-| Meeting capture + self-hosting | planned |
+| Zoom and Meet capture | planned |
 
 ## 📊 Evaluation
 
